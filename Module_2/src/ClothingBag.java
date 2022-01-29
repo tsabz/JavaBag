@@ -24,14 +24,33 @@ public class ClothingBag<T> implements BagInterface<T>
 
 	@Override
 	public boolean add(T newEntry) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		if (isArrayFull()) {
+			return false;
+		} else {
+			bag[numberOfEntries] = newEntry;
+			numberOfEntries++;
+			return true;
+		}
+		
 	}
 
 	@Override
 	public T[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		T[] output = (T[])new Object[numberOfEntries];
+		for (int i = 0; i < numberOfEntries; i++) {
+			output[i] = bag[i];
+		}
+		return output;
 	} 
+	
+	private boolean isArrayFull() {
+		if (numberOfEntries >= bag.length) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	 
  }
