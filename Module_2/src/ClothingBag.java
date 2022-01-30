@@ -19,7 +19,7 @@ public class ClothingBag<T> implements BagInterface<T>
 	@Override
 	public int getCurrentSize() {
 		// TODO Auto-generated method stub
-		return 0;
+		return numberOfEntries;
 	}
 
 	@Override
@@ -34,7 +34,20 @@ public class ClothingBag<T> implements BagInterface<T>
 		}
 		
 	}
-
+	
+	@Override 
+	public void clear() {
+		while(!isEmpty());
+	}
+	
+	public boolean isEmpty() {
+		if (numberOfEntries == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	@Override
 	public T[] toArray() {
 		
